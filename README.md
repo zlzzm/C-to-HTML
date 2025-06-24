@@ -17,15 +17,14 @@ button(text)	Adds a clickable HTML button
 Be sure to use all functions inside the main(), and use the starter and ender to start and end the project.
 The following themes can be used in starter() ex: starter(dark, title):
 
-Theme	  Background	Text Color
-dark	  black	      white
-light	  white	      black
-matrix	black	      lime
-rose	  pink	      white
-hacker	gray	      green
-aqua	  aqua	      navy
-sunset	orange	    maroon
-ghost	  white	      gray
-royal	  purple	    gold
-dev	    black-ish	  cyan
+dark:	  black	      white.
+light:	  white	      black.
+matrix:	black	      lime.
+rose:	  pink	      white.
+hacker:	gray	      green.
+aqua:	  aqua	      navy.
+sunset:	orange	    maroon.
+ghost:	  white	      gray.
+royal:	  purple	    gold.
+dev:	    black-ish	  cyan.
 
