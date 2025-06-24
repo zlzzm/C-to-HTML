@@ -1,0 +1,123 @@
+#include <stdio.h>
+void header(char text[]);
+int iframe(char iframeSrc[], int iframeWidth, int iframeHeight);
+int starter(char style1[], char title[]);
+int ender();
+int button(char buttonText[]);
+int img(char imageSrc[], char altTxt[], int imgWidth, int imgHeight);
+int link(char link[], char linkTxt[]);
+int linkNewTab(char linkNewTab[], char linkTxtNewTab[]);
+int p(char pTxt[]);
+int colorStyle(char color[]);
+int bgColorStyle(char bgColor[]);
+int themeStyle(char style[]);
+void header(char text[]) {
+    printf("\t<h1>%s</h1>\n", text);
+}
+int bgColorStyle(char bgColor[]) {
+    printf("\t\tbackground: %s\n", bgColor);
+}
+int colorStyle(char color[]) {
+    printf("\t\tcolor: %s\n", color);
+}
+int themeStyle(char style[]) {
+    if (style == "dark") 
+    {
+        bgColorStyle("black");
+        colorStyle("white");
+    }
+    else if (style == "light")
+    {
+        bgColorStyle("white");
+        colorStyle("black");
+    }
+    else if (style == "matrix") 
+    {
+        bgColorStyle("black");
+        colorStyle("lime");
+    }
+    else if (style == "rose")
+    {
+        bgColorStyle("white");
+        colorStyle("pink");
+    }
+    else if (style == "hacker")
+    {
+        bgColorStyle("black");
+        colorStyle("green");
+    }
+    else if (style == "aqua")
+    {
+        bgColorStyle("aqua");
+        colorStyle("navy");
+    }
+    else if (style == "sunset")
+    {
+        bgColorStyle("orange");
+        colorStyle("maroon");
+    }
+    else if (style == "ghost")
+    {
+        bgColorStyle("white");
+        colorStyle("grey");
+    }
+    else if (style == "royal")
+    {
+        bgColorStyle("purple");
+        colorStyle("gold");
+    }
+    else if (style == "dev")
+    {
+        bgColorStyle("#111");
+        colorStyle("cyan");
+    }
+    else 
+    {
+        bgColorStyle("white");
+        colorStyle("black");
+    }
+}
+int starter(char style1[], char title[]) {
+    printf("<!DOCTYPE html>\n");
+    printf("<html lang = en>\n");
+    printf("\n");
+    printf("<head>\n");
+    printf("\t<meta charset=\"UTF-8\" />\n");
+    printf("\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n");
+    printf("\t<title>%s</title>\n", title);
+    printf("\t<style>\n");
+    themeStyle(style1);
+    printf("\t</style>\n");
+    printf("</head>\n");
+    printf("\n");
+    printf("<body>\n");
+    return 0;
+}
+int iframe(char iframeSrc[], int iframeWidth, int iframeHeight) {
+    printf("\t<iframe src=\"%s\" width=\"%d\" height=\"%d\"></iframe>\n", iframeSrc, iframeWidth, iframeHeight);
+    return 0;
+}
+int ender() {
+    printf("</body>");
+    printf("\n\n");
+    printf("</html>");
+    return 0;
+}
+int button(char buttonText[]) {
+    printf("\t<button>%s</button>\n", buttonText);
+    return 0;
+}
+int img(char imgSrc[], char altTxt[], int imgWidth, int imgHeight) {
+    printf("\t<img src=\"%s\" alt=\"%s\" width=\"%d\" height=\"%d\" />\n", imgSrc, altTxt, imgWidth, imgHeight);
+    return 0;
+}
+int link(char link[], char linkTxt[]) {
+    printf("\t<a href=\"%s\">\"%s\"</a>\n", link, linkTxt);
+    return 0;
+}
+int linkNewTab(char linkNewTab[], char linkTxtNewTab[]) {
+    printf("\t<a href=\"%s\" target=\"_blank\">\"%s\"</a>\n", linkNewTab, linkTxtNewTab);
+}
+int p(char pTxt[]) {
+    printf("\t<p>%s</p>\n", pTxt);
+}
