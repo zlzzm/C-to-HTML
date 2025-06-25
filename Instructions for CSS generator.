@@ -29,3 +29,6 @@ Sets the horizontal alignment of text. Common values: "left", "center", "right",
 fontWeight("bold")
 Sets the weight of the font. Use "normal", "bold", "lighter", or numeric values like "400" or "700".
 
+buttonStyle("green", "blue", "red", 30, 10, 10, 30)
+Sets the peramiters of a fancy button. The statement above gives green as a background, 
+blue as a hover color, red as a text color, a font size of 30, and a border of 30.
