@@ -1,0 +1,31 @@
+🧠 Function Descriptions (C.CSS.grade6EZ)
+blockType("selector")
+Starts a new CSS block. Pass any selector like "body", "h1", ".container" — and it opens the {.
+
+blockEnd()
+Closes the current block. Always use this after you're done writing styles for that selector.
+
+color("red")
+Sets the text color inside the current block. Accepts any valid color name or code.
+
+bgColor("black")
+Sets the background color of the block.
+
+padding(20)
+Applies padding to the block in pixels.
+
+margin("0 auto")
+Applies margin to the block. Pass any valid CSS margin shorthand string.
+
+border(2, "solid", "green")
+Applies a border. First arg is width (number), second is style, third is color.
+
+fontFam("Arial")
+Sets the font-family. Pass the name of the font as a string (e.g., "Arial", "monospace").
+
+textAlign("center")
+Sets the horizontal alignment of text. Common values: "left", "center", "right", "justify".
+
+fontWeight("bold")
+Sets the weight of the font. Use "normal", "bold", "lighter", or numeric values like "400" or "700".
+
