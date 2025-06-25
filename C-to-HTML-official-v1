@@ -176,7 +176,3 @@ int templates(char templates[]) {
         ender();
     }
 }
-int main() {
-    templates("atv");
-    return 0;
-}
