@@ -18,13 +18,13 @@ Be sure to use all functions inside the main(), and use the starter and ender to
 The following themes can be used in starter() ex: starter(dark, title):
 
 dark:	  black	      white.
-light:	  white	      black.
+light:	white	      black.
 matrix:	black	      lime.
 rose:	  pink	      white.
 hacker:	gray	      green.
 aqua:	  aqua	      navy.
 sunset:	orange	    maroon.
-ghost:	  white	      gray.
-royal:	  purple	    gold.
-dev:	    black-ish	  cyan.
+ghost:	white	      gray.
+royal:	purple	    gold.
+dev:	  black-ish	  cyan.
 
