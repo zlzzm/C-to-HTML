@@ -1,0 +1,49 @@
+#include <stdio.h>
+int color(char color[]);
+int bgColor(char bgColor[]);
+int padding(int padding);
+int border(int border, char borderStyle[], char borderColor[]);
+int fontFam(char fontFam[]);
+int textAlign(char textAlign[]);
+int margin(char margin[]);
+int fontWeight(char fontWeight[]);
+int blockType(char blockType[]);
+int blockEnd();
+int color(char color[]) {
+    printf("\tcolor: %s\n", color);
+    return 0;
+}
+int bgColor(char bgColor[]) {
+    printf("\tbackground: %s\n", bgColor);
+    return 0;
+}
+int border(int border, char borderStyle[], char borderColor[]) {
+    printf("\tborder: %dpx %s %s\n", border, borderStyle, borderColor);
+    return 0;
+}
+int padding(int padding) {
+    printf("\tpadding: %d\n", padding);
+    return 0;
+}
+int margin(char margin[]) {
+    printf("\tmargin: %s\n", margin);
+    return 0;
+}
+int fontFam(char fontFam[]) {
+    printf("\tfont-family: %s\n", fontFam);
+    return 0;
+}
+int textAlign(char tectAlign[]) {
+    printf("\ttext-align: %s\n", textAlign);
+    return 0;
+}
+int fontWeight(char fontWeight[]) {
+    printf("\tfont-weight: %s\n", fontWeight);
+    return 0;
+}
+int blockType(char blockType[]) {
+    printf("%s {\n", blockType);
+}
+int blockEnd() {
+    printf("}");
+}
