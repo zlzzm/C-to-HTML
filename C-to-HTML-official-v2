@@ -1,4 +1,8 @@
 #include <stdio.h>
+#define LINEBREAK "<br>"
+#define COPYRIGHT "&copy"
+#define LINE "<hr>"
+int line ();
 int header(int hLevel, char text[]);
 int iframe(char iframeSrc[], int iframeWidth, int iframeHeight);
 int subHeader(char subText[]);
@@ -174,4 +178,7 @@ int templates(char templates[]) {
         header(2, "gonna have fun!");
         ender();
     }
+}
+int line() {
+    printf(LINE"\n");
 }
