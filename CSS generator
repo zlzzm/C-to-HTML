@@ -1,6 +1,7 @@
 #include <stdio.h>
 int color(char color[]);
 int bgColor(char bgColor[]);
+int buttonStyle(char bBgColor[], char hoverColor[], char textColor[], int radius, int paddingTop, int paddingSide, int fontSize);
 int padding(int padding);
 int border(int border, char borderStyle[], char borderColor[]);
 int fontFam(char fontFam[]);
@@ -46,4 +47,21 @@ int blockType(char blockType[]) {
 }
 int blockEnd() {
     printf("}");
+}
+int buttonStyle(char bBgColor[], char hoverColor[], char textColor[], int radius, int paddingTop, int paddingSide, int fontSize) {
+    printf("\t\nbutton {\n");
+    printf("\tpadding: %dpx %dpx;\n", paddingTop, paddingSide);
+    printf("\tborder: none;\n");
+    printf("\tborder-radius: %dpx;\n", radius);
+    printf("\tbackground-color: %s;\n", bBgColor);
+    printf("\tcolor: %s;\n", textColor);
+    printf("\tfont-size: %dpx;\n", fontSize);
+    printf("\tcursor: pointer;\n");
+    printf("\ttransition: background 0.3s;\n");
+    printf("}\n");
+
+    printf("button:hover {\n");
+    printf("\tbackground-color: %s;\n", hoverColor);
+    printf("}\n");
+    return 0;
 }
