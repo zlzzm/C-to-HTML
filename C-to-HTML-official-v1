@@ -1,6 +1,8 @@
+// Online C compiler to run C program online
 #include <stdio.h>
-void header(char text[]);
+int header(int hLevel, char text[]);
 int iframe(char iframeSrc[], int iframeWidth, int iframeHeight);
+int subHeader(char subText[]);
 int starter(char style1[], char title[]);
 int ender();
 int button(char buttonText[]);
@@ -11,14 +13,15 @@ int p(char pTxt[]);
 int colorStyle(char color[]);
 int bgColorStyle(char bgColor[]);
 int themeStyle(char style[]);
-void header(char text[]) {
-    printf("\t<h1>%s</h1>\n", text);
+int templates(char templates[]);
+int header(int hLevel, char text[]) {
+    printf("\t<h%d>%s</h%d>\n", hLevel, text, hLevel);
 }
 int bgColorStyle(char bgColor[]) {
-    printf("\t\tbackground: %s\n", bgColor);
+    printf("\tbody {\n\t\tbackground: %s;\n", bgColor);
 }
 int colorStyle(char color[]) {
-    printf("\t\tcolor: %s\n", color);
+    printf("\t\tcolor: %s;\n\t}\n", color);
 }
 int themeStyle(char style[]) {
     if (style == "dark") 
@@ -112,7 +115,7 @@ int img(char imgSrc[], char altTxt[], int imgWidth, int imgHeight) {
     return 0;
 }
 int link(char link[], char linkTxt[]) {
-    printf("\t<a href=\"%s\">\"%s\"</a>\n", link, linkTxt);
+    printf("\t<a href=\"%s\">%s</a>\n", link, linkTxt);
     return 0;
 }
 int linkNewTab(char linkNewTab[], char linkTxtNewTab[]) {
@@ -120,4 +123,60 @@ int linkNewTab(char linkNewTab[], char linkTxtNewTab[]) {
 }
 int p(char pTxt[]) {
     printf("\t<p>%s</p>\n", pTxt);
+}
+int templates(char templates[]) {
+    if (templates == "rickroll") {
+        starter("dark", "rickroll");
+        header(1, "you just got rickrolled!");
+        iframe("https://www.youtube.com/watch?v=dQw4w9WgXcQ", 600, 400);
+        header(2, "lol");
+        p("BTW, this was written by an engine made in C!");
+        ender();
+    }
+    if (templates == "starter") {
+        starter("light", "welcome!");
+        header(1, "Welcome to the C to HTML library!");
+        header(2, "I am so happy you are able to use this!");
+        p("with this, you can save quite a bit of time.");
+        p("such as instead of having to type <p>text</p>, you can just type p(\"text\") and then you get the same code.");
+        p("have fun with this!");
+        ender();
+    }
+    if (templates == "404notFound") {
+        starter("dark", "404 not found");
+        header(1, "\t\t\t404 NOT FOUND");
+        header(2, "\t\t\tERROR_CLIENT_SERVER");
+        ender();
+    }
+    if (templates == "hello world") {
+        starter("light", "My god the classic?");
+        header(1, "Hello World");
+        p("");
+        p("");
+        p("");
+        header(6, "Why the classic? Like just why?");
+        ender();
+    }
+    if (templates == "buttons") {
+        starter("dark", "booton!!!");
+        header(1, "click any of em");
+        button("1");
+        button("2");
+        button("3");
+        button("4");
+        button("5");
+        ender();
+    }
+    if (templates == "atv") {
+        starter("dark", "LETS FRICKIN GOOO!!!!!!!");
+        header(1, "BEST DAY EVER!");
+        link("https://deerhurstresort.com/plan-your-stay/activities/atv/", "link to place!");
+        img("https://deerhurstresort.com/uploads/2016/11/Outdoor-Adventures-Yamaha-Riding-Adventures-ATV-2.jpg", "This is a picture thats gonna be me!", 800, 700);
+        header(2, "gonna have fun!");
+        ender();
+    }
+}
+int main() {
+    templates("atv");
+    return 0;
 }
