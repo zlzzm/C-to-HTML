@@ -1,0 +1,35 @@
+#include <stdio.h>
+int main() {
+    char bgColor[50];
+    char hoverColor[50];
+    char textColor[50];
+    int radius, paddingTop, paddingSide, fontSize;
+    printf("Background color: ");
+    scanf("%s", bgColor);
+    printf("Text color: ");
+    scanf("%s", textColor);
+    printf("Hover color: ");
+    scanf("%s", hoverColor);
+    printf("Border radius (px): ");
+    scanf("%d", &radius);
+    printf("Padding top/bottom (px): ");
+    scanf("%d", &paddingTop);
+    printf("Padding left/right (px): ");
+    scanf("%d", &paddingSide);
+    printf("Font size (px): ");
+    scanf("%d", &fontSize);
+    printf("\nbutton {\n");
+    printf("\tpadding: %dpx %dpx;\n", paddingTop, paddingSide);
+    printf("\tborder: none;\n");
+    printf("\tborder-radius: %dpx;\n", radius);
+    printf("\tbackground-color: %s;\n", bgColor);
+    printf("\tcolor: %s;\n", textColor);
+    printf("\tfont-size: %dpx;\n", fontSize);
+    printf("\tcursor: pointer;\n");
+    printf("\ttransition: background 0.3s;\n");
+    printf("}\n");
+    printf("button:hover {\n");
+    printf("\tbackground-color: %s;\n", hoverColor);
+    printf("}\n");
+    return 0;
+}
