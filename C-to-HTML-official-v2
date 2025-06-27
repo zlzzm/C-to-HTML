@@ -1,184 +1,198 @@
-#include <stdio.h>
-#define LINEBREAK "<br>"
-#define COPYRIGHT "&copy"
-#define LINE "<hr>"
-int line ();
-int header(int hLevel, char text[]);
-int iframe(char iframeSrc[], int iframeWidth, int iframeHeight);
-int subHeader(char subText[]);
-int starter(char style1[], char title[]);
-int ender();
-int button(char buttonText[]);
-int img(char imageSrc[], char altTxt[], int imgWidth, int imgHeight);
-int link(char link[], char linkTxt[]);
-int linkNewTab(char linkNewTab[], char linkTxtNewTab[]);
-int p(char pTxt[]);
-int colorStyle(char color[]);
-int bgColorStyle(char bgColor[]);
-int themeStyle(char style[]);
-int templates(char templates[]);
-int header(int hLevel, char text[]) {
-    printf("\t<h%d>%s</h%d>\n", hLevel, text, hLevel);
-}
-int bgColorStyle(char bgColor[]) {
-    printf("\tbody {\n\t\tbackground: %s;\n", bgColor);
-}
-int colorStyle(char color[]) {
-    printf("\t\tcolor: %s;\n\t}\n", color);
-}
-int themeStyle(char style[]) {
-    if (style == "dark") 
-    {
-        bgColorStyle("black");
-        colorStyle("white");
-    }
-    else if (style == "light")
-    {
-        bgColorStyle("white");
-        colorStyle("black");
-    }
-    else if (style == "matrix") 
-    {
-        bgColorStyle("black");
-        colorStyle("lime");
-    }
-    else if (style == "rose")
-    {
-        bgColorStyle("white");
-        colorStyle("pink");
-    }
-    else if (style == "hacker")
-    {
-        bgColorStyle("black");
-        colorStyle("green");
-    }
-    else if (style == "aqua")
-    {
-        bgColorStyle("aqua");
-        colorStyle("navy");
-    }
-    else if (style == "sunset")
-    {
-        bgColorStyle("orange");
-        colorStyle("maroon");
-    }
-    else if (style == "ghost")
-    {
-        bgColorStyle("white");
-        colorStyle("grey");
-    }
-    else if (style == "royal")
-    {
-        bgColorStyle("purple");
-        colorStyle("gold");
-    }
-    else if (style == "dev")
-    {
-        bgColorStyle("#111");
-        colorStyle("cyan");
-    }
-    else 
-    {
-        bgColorStyle("white");
-        colorStyle("black");
-    }
-}
-int starter(char style1[], char title[]) {
-    printf("<!DOCTYPE html>\n");
-    printf("<html lang = en>\n");
-    printf("\n");
-    printf("<head>\n");
-    printf("\t<meta charset=\"UTF-8\" />\n");
-    printf("\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n");
-    printf("\t<title>%s</title>\n", title);
-    printf("\t<style>\n");
-    themeStyle(style1);
-    printf("\t</style>\n");
-    printf("</head>\n");
-    printf("\n");
-    printf("<body>\n");
-    return 0;
-}
-int iframe(char iframeSrc[], int iframeWidth, int iframeHeight) {
-    printf("\t<iframe src=\"%s\" width=\"%d\" height=\"%d\"></iframe>\n", iframeSrc, iframeWidth, iframeHeight);
-    return 0;
-}
-int ender() {
-    printf("</body>");
-    printf("\n\n");
-    printf("</html>");
-    return 0;
-}
-int button(char buttonText[]) {
-    printf("\t<button>%s</button>\n", buttonText);
-    return 0;
-}
-int img(char imgSrc[], char altTxt[], int imgWidth, int imgHeight) {
-    printf("\t<img src=\"%s\" alt=\"%s\" width=\"%d\" height=\"%d\" />\n", imgSrc, altTxt, imgWidth, imgHeight);
-    return 0;
-}
-int link(char link[], char linkTxt[]) {
-    printf("\t<a href=\"%s\">%s</a>\n", link, linkTxt);
-    return 0;
-}
-int linkNewTab(char linkNewTab[], char linkTxtNewTab[]) {
-    printf("\t<a href=\"%s\" target=\"_blank\">\"%s\"</a>\n", linkNewTab, linkTxtNewTab);
-}
-int p(char pTxt[]) {
-    printf("\t<p>%s</p>\n", pTxt);
-}
-int templates(char templates[]) {
-    if (templates == "rickroll") {
-        starter("dark", "rickroll");
-        header(1, "you just got rickrolled!");
-        iframe("https://www.youtube.com/watch?v=dQw4w9WgXcQ", 600, 400);
-        header(2, "lol");
-        p("BTW, this was written by an engine made in C!");
-        ender();
-    }
-    if (templates == "starter") {
-        starter("light", "welcome!");
-        header(1, "Welcome to the C to HTML library!");
-        header(2, "I am so happy you are able to use this!");
-        p("with this, you can save quite a bit of time.");
-        p("such as instead of having to type <p>text</p>, you can just type p(\"text\") and then you get the same code.");
-        p("have fun with this!");
-        ender();
-    }
-    if (templates == "404notFound") {
-        starter("dark", "404 not found");
-        header(1, "\t\t\t404 NOT FOUND");
-        header(2, "\t\t\tERROR_CLIENT_SERVER");
-        ender();
-    }
-    if (templates == "hello world") {
-        starter("light", "My god the classic?");
-        header(1, "Hello World");
-        p("");
-        p("");
-        p("");
-        header(6, "Why the classic? Like just why?");
-        ender();
-    }
-    if (templates == "buttons") {
-        starter("dark", "booton!!!");
-        header(1, "click any of em");
-        button("1");
-        button("2");
-        button("3");
-        button("4");
-        button("5");
-        ender();
-    }
-    if (templates == "atv") {
-        starter("dark", "LETS FRICKIN GOOO!!!!!!!");
-        header(1, "BEST DAY EVER!");
-        link("https://deerhurstresort.com/plan-your-stay/activities/atv/", "link to place!");
-        img("https://deerhurstresort.com/uploads/2016/11/Outdoor-Adventures-Yamaha-Riding-Adventures-ATV-2.jpg", "This is a picture thats gonna be me!", 800, 700);
-        header(2, "gonna have fun!");
-        ender();
-    }
-}
-int line() {
-    printf(LINE"\n");
+#include <stdio.h> 
+#define LINEBREAK "<br>" 
+#define COPYRIGHT "&copy" 
+#define LINE "<hr>" 
+#define end ;
+#define main int main()
+int line () end 
+int header(int hLevel, char text[]) end 
+int iframe(char iframeSrc[], int iframeWidth, int iframeHeight) end 
+int subHeader(char subText[]) end 
+int starter(char style1[], char title[]) end 
+int ender() end 
+int button(char buttonText[]) end 
+int img(char imageSrc[], char altTxt[], int imgWidth, int imgHeight) end 
+int link(char link[], char linkTxt[]) end 
+int linkNewTab(char linkNewTab[], char linkTxtNewTab[]) end 
+int p(char pTxt[]) end 
+int colorStyle(char color[]) end 
+int bgColorStyle(char bgColor[]) end 
+int themeStyle(char style[]) end 
+int templates(char templates[]) end 
+int header(int hLevel, char text[]) { 
+    printf("\t<h%d>%s</h%d>\n", hLevel, text, hLevel) end 
+} 
+int bgColorStyle(char bgColor[]) { 
+    printf("\tbody {\n\t\tbackground: %s end\n", bgColor) end 
+} 
+int colorStyle(char color[]) { 
+    printf("\t\tcolor: %s end\n\t}\n", color) end 
+} 
+int themeStyle(char style[]) { 
+    if (style == "dark")  
+    { 
+        bgColorStyle("black") end 
+        colorStyle("white") end 
+    } 
+    else if (style == "light") 
+    { 
+        bgColorStyle("white") end 
+        colorStyle("black") end 
+    } 
+    else if (style == "matrix")  
+    { 
+        bgColorStyle("black") end 
+        colorStyle("lime") end 
+    } 
+    else if (style == "rose") 
+    { 
+        bgColorStyle("white") end 
+        colorStyle("pink") end 
+    } 
+    else if (style == "hacker") 
+    { 
+        bgColorStyle("black") end 
+        colorStyle("green") end 
+    } 
+    else if (style == "aqua") 
+    { 
+        bgColorStyle("aqua") end 
+        colorStyle("navy") end 
+    } 
+    else if (style == "sunset") 
+    { 
+        bgColorStyle("orange") end 
+        colorStyle("maroon") end 
+    } 
+    else if (style == "ghost") 
+    { 
+        bgColorStyle("white") end 
+        colorStyle("grey") end 
+    } 
+    else if (style == "royal") 
+    { 
+        bgColorStyle("purple") end 
+        colorStyle("gold") end 
+    } 
+    else if (style == "dev") 
+    { 
+        bgColorStyle("#111") end 
+        colorStyle("cyan") end 
+    } 
+    else  
+    { 
+        bgColorStyle("white") end 
+        colorStyle("black") end 
+    } 
+} 
+int starter(char style1[], char title[]) { 
+    printf("<!DOCTYPE html>\n") end 
+    printf("<html lang = en>\n") end 
+    printf("\n") end 
+    printf("<head>\n") end 
+    printf("\t<meta charset=\"UTF-8\" />\n") end 
+    printf("\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n") end 
+    printf("\t<title>%s</title>\n", title) end 
+    printf("\t<style>\n") end 
+    themeStyle(style1) end 
+    printf("\t</style>\n") end 
+    printf("</head>\n") end 
+    printf("\n") end 
+    printf("<body>\n") end 
+    return 0 end 
+} 
+int iframe(char iframeSrc[], int iframeWidth, int iframeHeight) { 
+    printf("\t<iframe src=\"%s\" width=\"%d\" height=\"%d\"></iframe>\n", iframeSrc, iframeWidth, iframeHeight) end 
+    return 0 end 
+} 
+int ender() { 
+    printf("</body>") end 
+    printf("\n\n") end 
+    printf("</html>") end 
+    return 0 end 
+} 
+int button(char buttonText[]) { 
+    printf("\t<button>%s</button>\n", buttonText) end 
+    return 0 end 
+} 
+int img(char imgSrc[], char altTxt[], int imgWidth, int imgHeight) { 
+    printf("\t<img src=\"%s\" alt=\"%s\" width=\"%d\" height=\"%d\" />\n", imgSrc, altTxt, imgWidth, imgHeight) end 
+    return 0 end 
+} 
+int link(char link[], char linkTxt[]) { 
+    printf("\t<a href=\"%s\">%s</a>\n", link, linkTxt) end 
+    return 0 end 
+} 
+int linkNewTab(char linkNewTab[], char linkTxtNewTab[]) { 
+    printf("\t<a href=\"%s\" target=\"_blank\">\"%s\"</a>\n", linkNewTab, linkTxtNewTab) end 
+} 
+int p(char pTxt[]) { 
+    printf("\t<p>%s</p>\n", pTxt) end 
+} 
+int templates(char templates[]) { 
+    if (templates == "rickroll") { 
+        starter("dark", "rickroll") end 
+        header(1, "you just got rickrolled!") end 
+        iframe("https://www.youtube.com/watch?v=dQw4w9WgXcQ", 600, 400) end 
+        header(2, "lol") end 
+        p("BTW, this was written by an engine made in C!") end 
+        ender() end 
+    } 
+    if (templates == "starter") { 
+        starter("light", "welcome!") end 
+        header(1, "Welcome to the C to HTML library!") end 
+        header(2, "I am so happy you are able to use this!") end 
+        p("with this, you can save quite a bit of time.") end 
+        p("such as instead of having to type <p>text</p>, you can just type p(\"text\") and then you get the same code.") end 
+        p("have fun with this!") end 
+        ender() end 
+    } 
+    if (templates == "404notFound") { 
+        starter("dark", "404 not found") end 
+        header(1, "\t\t\t404 NOT FOUND") end 
+        header(2, "\t\t\tERROR_CLIENT_SERVER") end 
+        ender() end 
+    } 
+    if (templates == "hello world") { 
+        starter("light", "My god the classic?") end 
+        header(1, "Hello World") end 
+        p("") end 
+        p("") end 
+        p("") end 
+        header(6, "Why the classic? Like just why?") end 
+        ender() end 
+    } 
+    if (templates == "buttons") { 
+        starter("dark", "booton!!!") end 
+        header(1, "click any of em") end 
+        button("1") end 
+        button("2") end 
+        button("3") end 
+        button("4") end 
+        button("5") end 
+        ender() end 
+    } 
+    if (templates == "atv") { 
+        starter("dark", "LETS FRICKIN GOOO!!!!!!!") end 
+        header(1, "BEST DAY EVER!") end 
+        link("https://deerhurstresort.com/plan-your-stay/activities/atv/", "link to place!") end 
+        img("https://deerhurstresort.com/uploads/2016/11/Outdoor-Adventures-Yamaha-Riding-Adventures-ATV-2.jpg", "This is a picture thats gonna be me!", 800, 700) end 
+        header(2, "gonna have fun!") end 
+        ender() end 
+    } 
+} 
+int line() { 
+    printf(LINE"\n") end 
+} 
+main {
+    starter("royal", "testing") end
+    header(1, "This is text") end
+    line() end
+    header(2, "This is entirely made by a new markup language") end
+    p("The int main() {} function is now just main") end
+    p("As you can see," LINEBREAK "I can just type LINEBREAK and then it will automatically make a new line.") end
+    p("The ; becomes just end") end
+    iframe("https://www.youtube.com/watch?v=-DAfmFdLIjo", 800, 600) end
+    p("Now, iframe is just iframe(\"src\", int width, int length") end
+    header(6, "ok bye") end
 }
